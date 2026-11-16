@@ -12,4 +12,4 @@ COPY --from=build /app/build/libs/*.jar app.jar
 EXPOSE 8080
 
 # [수정] 0.0.0.0 바인딩과 렌더 포트 환경변수(${PORT})를 반영하도록 수정
-ENTRYPOINT ["java", "-Xmx256m", "-Dserver.address=0.0.0.0", "-Dserver.port=${PORT:-8080}", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-Xmx400m", "-Xms256m", "-Dserver.address=0.0.0.0", "-Dserver.port=${PORT:-8080}", "-jar", "app.jar"]
