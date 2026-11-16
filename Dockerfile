@@ -10,5 +10,6 @@ WORKDIR /app
 # 빌드된 jar 파일을 복사
 COPY --from=build /app/build/libs/*.jar app.jar
 EXPOSE 8080
-# 램 256MB 제한 옵션을 걸고 실행
-ENTRYPOINT ["java", "-Xmx256m", "-jar", "app.jar"]
+
+# [수정] 0.0.0.0 바인딩과 렌더 포트 환경변수(${PORT})를 반영하도록 수정
+ENTRYPOINT ["java", "-Xmx256m", "-Dserver.address=0.0.0.0", "-Dserver.port=${PORT:-8080}", "-jar", "app.jar"]
