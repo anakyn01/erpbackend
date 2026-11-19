@@ -45,7 +45,8 @@ public class SecurityConfig {
         // 프론트엔드 로컬 주소 + 필요시 배포된 프론트엔드 주소 추가 가능
         configuration.setAllowedOrigins(List.of(
                 "http://localhost:3000", 
-                "http://127.0.0.1:3000"
+                "http://127.0.0.1:3000",
+                "http://heartbreakkid.co.kr"
                 // 만약 프론트엔드도 렌더나 Vercel 등에 배포했다면 여기에 해당 도메인 추가 가능
         ));
         
